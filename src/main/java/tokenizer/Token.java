@@ -6,16 +6,25 @@ package tokenizer;
 public class Token {
 
     public enum TokenType {
-        REGISTER,
-        OPCODE,
-        NUMBER,
-        LABEL,
-        NEWLINE,
+        SPECIAL_CHARACTER,
+        DECIMAL,
+        HEX,
+        ALPHANUMERIC
     }
 
     private String val;
+    private TokenType type;
 
-    public Token(String val) {
+    public Token(String val, TokenType type) {
         this.val = val;
+        this.type = type;
+    }
+
+    public String getVal() {
+        return this.val;
+    }
+
+    public TokenType getType() {
+        return this.type;
     }
 }
