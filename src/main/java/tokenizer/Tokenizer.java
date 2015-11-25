@@ -1,11 +1,6 @@
 package tokenizer;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 import java.util.function.Consumer;
 
 /**
@@ -32,7 +27,7 @@ public class Tokenizer implements Iterator<Token>{
     }
 
     public void setLine(String line) {
-        this.currentLine = line;
+        this.currentLine = line.toLowerCase();
         lineNumber++;
         lineIndex = 0;
         this.state = State.A;
@@ -54,7 +49,28 @@ public class Tokenizer implements Iterator<Token>{
         while(token != null) {
             switch (this.state) {
                 case A:
+                    char c = currentLine.charAt(lineIndex);
+                    if(isWhiteSpace(c)) {
+                        lineIndex++;
+                    }
+                    else if(isAlpha(c)){
 
+                    }
+                    else if(isZero(c)) {
+
+                    }
+                    else if(isNumeric(c)) {
+
+                    }
+                    else if(isSpecialCharacter(c)) {
+
+                    }
+                    else if(isBackSlash(c)) {
+
+                    }
+                    else if(isAstericks(c)) {
+
+                    }
                     break;
                 case B:
 
@@ -93,5 +109,35 @@ public class Tokenizer implements Iterator<Token>{
 
     public void forEachRemaining(Consumer<? super Token> action) {
 
+    }
+
+    private boolean isAlpha(char c) {
+        return c >= 97 && c <= 122;
+    }
+
+    private boolean isWhiteSpace(char c) {
+        return c == ' ';
+    }
+
+    private boolean isZero(char c) {
+        return c == '0';
+    }
+
+    private boolean isNumeric(char c) {
+        return c <= 49 && c >= 57;
+    }
+
+    private boolean isSpecialCharacter(char c) {
+        return c == ',' ||
+                c == '-' ||
+                c == ':';
+    }
+
+    private boolean isBackSlash(char c) {
+        return c == '\\';
+    }
+
+    private boolean isAstericks(char c) {
+        return c == '*';
     }
 }
