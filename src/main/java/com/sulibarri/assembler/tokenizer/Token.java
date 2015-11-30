@@ -1,4 +1,4 @@
-package tokenizer;
+package com.sulibarri.assembler.tokenizer;
 
 /**
  * Created by steven on 11/18/15.

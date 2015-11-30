@@ -7,7 +7,7 @@ OR R3, R3, 0x200000
 STR R3, R2
 
 /*turn on LED*/
-ADD R3, R4, 0x20
+:LEDON ADD R3, R4, 0x20
 MOVW R2, 0x8000
 STR R2, R3
 

@@ -1,8 +1,4 @@
-package tokenizer;
-
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.function.Consumer;
+package com.sulibarri.assembler.tokenizer;
 
 /**
  * Created by steven on 11/18/15.
@@ -58,7 +54,6 @@ public class Tokenizer {
                 case A:
                     if(isWhiteSpace(c)) {
                         lineIndex++;
-                        builder.append(c);
                     }
                     else if(isAlpha(c)){
                         lineIndex++;
